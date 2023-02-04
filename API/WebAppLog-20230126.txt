@@ -1,0 +1,81 @@
+2023-01-26 19:31:52.094 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-01-26 19:31:52.144 +02:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-01-26 19:31:52.253 +02:00 [INF] User profile is available. Using 'C:\Users\istep\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-01-26 19:31:52.433 +02:00 [INF] Now listening on: https://localhost:7196
+2023-01-26 19:31:52.433 +02:00 [INF] Now listening on: http://localhost:5095
+2023-01-26 19:31:52.434 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-01-26 19:31:52.434 +02:00 [INF] Hosting environment: Development
+2023-01-26 19:31:52.434 +02:00 [INF] Content root path: C:\Users\istep\source\repos\Andriy22\.NET-7-API-template\API
+2023-01-26 19:31:52.686 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/swagger - -
+2023-01-26 19:31:52.720 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/swagger - - - 301 0 - 34.1597ms
+2023-01-26 19:31:52.726 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/swagger/index.html - -
+2023-01-26 19:31:52.830 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/swagger/index.html - - - 200 - text/html;charset=utf-8 104.1335ms
+2023-01-26 19:31:52.841 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/swagger/swagger-ui.css - -
+2023-01-26 19:31:52.841 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/swagger/swagger-ui-bundle.js - -
+2023-01-26 19:31:52.841 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/_framework/aspnetcore-browser-refresh.js - -
+2023-01-26 19:31:52.841 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/swagger/swagger-ui-standalone-preset.js - -
+2023-01-26 19:31:52.844 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 3.0085ms
+2023-01-26 19:31:52.852 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/_framework/aspnetcore-browser-refresh.js - -
+2023-01-26 19:31:52.853 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 0.4291ms
+2023-01-26 19:31:52.853 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-01-26 19:31:52.853 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-01-26 19:31:52.853 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/swagger/swagger-ui.css - - - 200 143943 text/css 12.4725ms
+2023-01-26 19:31:52.853 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/swagger/swagger-ui-standalone-preset.js - - - 200 339486 text/javascript 12.3528ms
+2023-01-26 19:31:52.856 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-01-26 19:31:52.856 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/swagger/swagger-ui-bundle.js - - - 200 1096145 text/javascript 15.3132ms
+2023-01-26 19:31:52.894 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/swagger/swagger-ui-bundle.js - -
+2023-01-26 19:31:52.894 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/swagger/swagger-ui-standalone-preset.js - -
+2023-01-26 19:31:52.894 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/_vs/browserLink - -
+2023-01-26 19:31:52.896 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-01-26 19:31:52.897 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/swagger/swagger-ui-standalone-preset.js - - - 200 339486 text/javascript 2.5358ms
+2023-01-26 19:31:52.900 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-01-26 19:31:52.900 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/swagger/swagger-ui-bundle.js - - - 200 1096145 text/javascript 6.1695ms
+2023-01-26 19:31:52.929 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 33.9856ms
+2023-01-26 19:31:53.099 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/swagger/v1/swagger.json - -
+2023-01-26 19:31:53.171 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 72.2739ms
+2023-01-26 19:31:53.645 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7196/_vs/browserLink - -
+2023-01-26 19:31:53.653 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7196/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 8.1438ms
+2023-01-26 19:32:11.930 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7196/api/Auth/authorization application/json-patch+json 63
+2023-01-26 19:32:11.933 +02:00 [INF] CORS policy execution successful.
+2023-01-26 19:32:12.079 +02:00 [INF] Executing endpoint 'API.Controllers.AuthController.AuthorizationAsync (API)'
+2023-01-26 19:32:12.090 +02:00 [INF] Route matched with {action = "Authorization", controller = "Auth", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AuthorizationAsync(Application.Common.DTOs.Auth.AuthorizationDTO) on controller API.Controllers.AuthController (API).
+2023-01-26 19:32:12.308 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[CreationTime], [a].[LanguageId], [a].[LastLogIn], [a].[Nickname]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'AppUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-01-26 19:32:12.442 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-01-26 19:32:12.687 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Guid), @p5='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [IpAddress], [IsExpired], [ToLife], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2023-01-26 19:32:12.703 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-01-26 19:32:12.706 +02:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.DTOs.Auth.AuthorizationVM'.
+2023-01-26 19:32:12.724 +02:00 [INF] Executed action API.Controllers.AuthController.AuthorizationAsync (API) in 632.6745ms
+2023-01-26 19:32:12.724 +02:00 [INF] Executed endpoint 'API.Controllers.AuthController.AuthorizationAsync (API)'
+2023-01-26 19:32:12.728 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7196/api/Auth/authorization application/json-patch+json 63 - 200 620 application/json;+charset=utf-8 798.1022ms

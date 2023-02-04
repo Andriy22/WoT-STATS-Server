@@ -1,12 +1,15 @@
 using API.Middleware;
+using API.Services;
 using Application;
 using Application.Common.Mappings;
 using Application.Interfaces;
 using FluentValidation.AspNetCore;
+using Microsoft.IdentityModel.Tokens;
 using Persistence;
 using Serilog;
 using Serilog.Events;
 using System.Reflection;
+
 
 var logger = new LoggerConfiguration()
               .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
@@ -17,7 +20,7 @@ var logger = new LoggerConfiguration()
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddMvc().AddNewtonsoftJson();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -44,6 +47,13 @@ builder.Services.AddCors(options =>
         policy.AllowAnyOrigin();
     });
 });
+
+builder.Services.AddSingleton<ICurrentUserService, CurrentUserService>();
+builder.Services.AddScoped<IRazorRenderService, RazorRenderService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IJWTService, JWTService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Host.UseSerilog(logger);
 
@@ -79,6 +89,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
